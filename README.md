@@ -1,3 +1,9 @@
+# Hugo AcademicX
+
+A personal academic website theme for [Hugo](https://gohugo.io). Forked from [gcushen/hugo-academic](https://github.com/gcushen/hugo-academic).
+
+Below is the original README.md from the upstream:
+
 # Hugo Academic
 
 A personal academic website theme for [Hugo](https://gohugo.io).
