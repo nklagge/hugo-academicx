@@ -1,18 +1,18 @@
-name = "Academic"
+name = "AcademicX"
 license = "MIT"
-licenselink = "https://github.com/gcushen/hugo-academic/blob/master/LICENSE.md"
+licenselink = "https://github.com/xywei/hugo-academicx/blob/master/LICENSE.md"
 description = "A one page personal theme for academic staff and students."
-homepage = "https://github.com/gcushen/hugo-academic"
-tags = ["academic", "portfolio", "responsive", "student", "personal", "university", "blog", "minimal"]
+homepage = "https://github.com/xywei/hugo-academicx"
+tags = ["academic", "portfolio", "responsive", "personal", "university", "minimal"]
 features = ["biography", "academic interests", "research publication system", "blog"]
 min_version = 0.15
 
 [author]
-  name = "George Cushen"
-  homepage = "https://georgecushen.com"
+  name = "Jacob Xiaoyu Wei"
+  homepage = "http://wei.wxyzg.com"
 
 # If porting an existing theme
 [original]
-  name = ""
-  homepage = ""
+  name = "George Cushen"
+  homepage = "https://georgecushen.com"
   repo = ""

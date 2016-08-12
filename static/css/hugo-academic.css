@@ -137,6 +137,10 @@ pre {
     }
 }
 
+ol li p {
+  margin-bottom: 0px;
+}
+
 /*************************************************
  *  Home Sections
  **************************************************/
@@ -430,6 +434,61 @@ h3.article-title a {
 .pub-list-item .pub-links {
     padding-top: 10px;
 }
+
+/*************************************************
+ * Tutorials
+ **************************************************/
+
+.tut-icon {
+    color: #03396c;
+    font-size: 0.81em;
+    padding-top: 6px;
+}
+
+.tut-banner {
+    max-width: 100%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.tut .tut-title {
+    margin-bottom: 5px;
+}
+
+.tut .tut-lecturers {
+    font-style: italic;
+    line-height: 30px; /* Match share bar line height. */
+}
+
+.tut .tut-row-heading {
+    font-weight: bold;
+}
+
+.tut-list-item {
+    margin-bottom: 40px;
+}
+
+.tut-list-item .tut-basicinfo {
+    font-size: 1.13em;
+}
+
+.tut-list-item .tut-lecturers {
+    line-height: normal;
+    font-style: normal;
+    font-size: 1.13em;
+    color: #3170A5;
+}
+
+.tut-list-item .tut-material {
+    color: #090;
+    font-size: 1em;
+}
+
+.tut-list-item .tut-links {
+    padding-top: 10px;
+}
+
 
 /*************************************************
  *  Projects

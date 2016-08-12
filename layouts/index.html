@@ -81,6 +81,33 @@
 </section>
 {{ end }}
 
+<!-- Tutorials Section -->
+{{ $tutorials_len := len (where .Data.Pages "Type" "tutorial") }}
+{{ if gt $tutorials_len 0 }}
+<section id="tutorial" class="home-section">
+    <div class="container">
+      <div class="row">
+            <div class="col-xs-12 col-md-4 section-heading">
+                <h1>{{ with .Site.Params.tutorials.title }}{{ . | markdownify }}{{ end }}</h1>
+                {{ with .Site.Params.publications.subtitle }}<p>{{ . | markdownify }}</p>{{ end }}
+                {{ if gt $tutorials_len .Site.Params.tutorials.count }}
+                <p class="view-all">
+                    <a href="{{ .Site.BaseURL }}tutorial/">
+                        {{ with .Site.Params.tutorials.str_all }}{{ . | markdownify }}{{ end }}
+                        <i class="fa fa-angle-double-right"></i>
+                    </a>
+                </p>
+                {{ end }}
+            </div>
+            <div class="col-xs-12 col-md-8">
+              {{ range first .Site.Params.tutorials.count (where .Data.Pages "Type" "tutorial") }}
+              {{ partial "tutorial_li_detailed" . }}
+              {{ end }}
+            </div>
+        </div>
+    </div>
+</section>
+{{ end }}
 
 <!-- Blog Posts Section -->
 {{ $posts_len := len (where (where .Data.Pages "Type" "post") ".Params.notonhomepage" nil) }}

@@ -1,0 +1,16 @@
+{{ $is_list := .is_list }}
+{{ $ := .content }}
+
+{{ if $is_list }}
+<a class="btn btn-primary btn-outline btn-xs" href="{{ $.Permalink }}">Details</a>
+{{ end }}
+
+{{ with $.Params.course_page }}
+<a class="btn btn-primary btn-outline{{ if $is_list }} btn-xs{{end}}" href="{{ . | absURL }}">Course Page</a>
+{{ end }}
+
+{{ range $.Params.url_custom }}
+<a class="btn btn-primary btn-outline{{ if $is_list }} btn-xs{{end}}" href="{{ .url | absURL }}">
+  {{ .name }}
+</a>
+{{ end }}
