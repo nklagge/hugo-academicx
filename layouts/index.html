@@ -5,7 +5,7 @@
 <span id="homepage" style="display: none"></span>
 
 <!-- Biography Section -->
-{{ range where .Data.Pages "Type" "home" }}
+{{ range where .Site.Pages "Type" "home" }}
 {{ if eq .Title "about" }}
 <section id="bio" class="home-section">
     <div class="container">
@@ -17,7 +17,7 @@
 
 
 <!-- Selected Publications Section -->
-{{ $pubs_selected_len := len (where (where .Data.Pages "Type" "publication") ".Params.selected" true) }}
+{{ $pubs_selected_len := len (where (where .Site.Pages "Type" "publication") ".Params.selected" true) }}
 {{ if gt $pubs_selected_len 0 }}
 <section id="publications" class="home-section">
     <div class="container">
@@ -28,12 +28,12 @@
             </div>
             <div class="col-xs-12 col-md-8">
                 {{ if .Site.Params.publications_selected.detailed_list }}
-                {{ range (where (where .Data.Pages "Type" "publication") ".Params.selected" true) }}
+                {{ range (where (where .Site.Pages "Type" "publication") ".Params.selected" true) }}
                 {{ partial "publication_li_detailed" . }}
                 {{ end }}
                 {{ else }}
                 <ul class="fa-ul">
-                    {{ range (where (where .Data.Pages "Type" "publication") ".Params.selected" true) }}
+                    {{ range (where (where .Site.Pages "Type" "publication") ".Params.selected" true) }}
                     {{ partial "publication_li_simple" . }}
                     {{ end }}
                 </ul>
@@ -46,7 +46,7 @@
 
 
 <!-- Publications Section -->
-{{ $pubs_len := len (where .Data.Pages "Type" "publication") }}
+{{ $pubs_len := len (where .Site.Pages "Type" "publication") }}
 {{ if gt $pubs_len 0 }}
 <section {{ if eq $pubs_selected_len 0 }}id="publications" {{ end }}class="home-section">
     <div class="container">
@@ -65,12 +65,12 @@
             </div>
             <div class="col-xs-12 col-md-8">
                 {{ if .Site.Params.publications.detailed_list }}
-                {{ range first .Site.Params.publications.count (where .Data.Pages "Type" "publication") }}
+                {{ range first .Site.Params.publications.count (where .Site.Pages "Type" "publication") }}
                 {{ partial "publication_li_detailed" . }}
                 {{ end }}
                 {{ else }}
                 <ul class="fa-ul">
-                    {{ range first .Site.Params.publications.count (where .Data.Pages "Type" "publication") }}
+                    {{ range first .Site.Params.publications.count (where .Site.Pages "Type" "publication") }}
                     {{ partial "publication_li_simple" . }}
                     {{ end }}
                 </ul>
@@ -82,7 +82,7 @@
 {{ end }}
 
 <!-- Tutorials Section -->
-{{ $tutorials_len := len (where .Data.Pages "Type" "tutorial") }}
+{{ $tutorials_len := len (where .Site.Pages "Type" "tutorial") }}
 {{ if gt $tutorials_len 0 }}
 <section id="tutorial" class="home-section">
     <div class="container">
@@ -100,7 +100,7 @@
                 {{ end }}
             </div>
             <div class="col-xs-12 col-md-8">
-              {{ range first .Site.Params.tutorials.count (where .Data.Pages "Type" "tutorial") }}
+              {{ range first .Site.Params.tutorials.count (where .Site.Pages "Type" "tutorial") }}
               {{ partial "tutorial_li_detailed" . }}
               {{ end }}
             </div>
@@ -110,7 +110,7 @@
 {{ end }}
 
 <!-- Blog Posts Section -->
-{{ $posts_len := len (where (where .Data.Pages "Type" "post") ".Params.notonhomepage" nil) }}
+{{ $posts_len := len (where (where .Site.Pages "Type" "post") ".Params.notonhomepage" nil) }}
 {{ if gt $posts_len 0 }}
 <section id="posts" class="home-section">
     <div class="container">
@@ -128,7 +128,7 @@
                 {{ end }}
             </div>
             <div class="col-xs-12 col-md-8">
-                {{ range first .Site.Params.posts.count (where (where .Data.Pages "Type" "post") ".Params.notonhomepage" nil) }}
+                {{ range first .Site.Params.posts.count (where (where .Site.Pages "Type" "post") ".Params.notonhomepage" nil) }}
                 <div class="article-list-item" itemscope itemprop="blogPost">
                     {{ if .Params.image }}
                     <a href="{{ .Permalink }}">
@@ -159,7 +159,7 @@
 
 
 <!-- Projects Section -->
-{{ $projects_len := len (where .Data.Pages "Type" "project") }}
+{{ $projects_len := len (where .Site.Pages "Type" "project") }}
 {{ if gt $projects_len 0 }}
 <section id="projects" class="home-section">
     <div class="container">
@@ -170,7 +170,7 @@
             </div>
             <div class="col-xs-12 col-md-8">
                 <ul class="fa-ul">
-                    {{ range where .Data.Pages "Type" "project" }}
+                    {{ range where .Site.Pages "Type" "project" }}
                     <li>
                         <span class="project-title">
                         {{ if .Content }}<a href="{{ .Permalink }}">{{ else }}{{ with .Params.external_link }}<a href="{{ . }}">{{ end }}{{ end }}
@@ -203,7 +203,7 @@
 
 
 <!-- Custom Sections -->
-{{ range $index, $page := where .Data.Pages "Type" "home" }}
+{{ range $index, $page := where .Site.Pages "Type" "home" }}
 {{ if and (isset .Params "section_id") (not (eq .Params.section_id 0)) }}
 {{ $title_words := split $page.Title " " }}
 <section id="{{ range $k, $v := $title_words }}{{ if eq $k 0 }}{{ . | urlize | lower }}{{ end }}{{ end }}" class="home-section">
